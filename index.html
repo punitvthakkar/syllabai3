@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyllabAI - Course Syllabus Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SyllabAI</h1>
+            <p>Generate beautiful course syllabi in seconds</p>
+            <button id="darkModeToggle" class="toggle-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="courseName">Course Name</label>
+                    <input type="text" id="courseName" placeholder="Introduction to Computer Science">
+                </div>
+                
+                <div class="form-group">
+                    <label for="courseCode">Course Code</label>
+                    <input type="text" id="courseCode" placeholder="CS 101">
+                </div>
+                
+                <div class="form-group">
+                    <label for="courseDescription">Course Description</label>
+                    <textarea id="courseDescription" placeholder="A foundational course covering the basics of computer science, algorithms, and programming concepts."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discipline">Academic Discipline</label>
+                    <input type="text" id="discipline" placeholder="Computer Science, MBA, Psychology, etc.">
+                </div>
+                
+                <div class="form-group">
+                    <label for="teachingStyle">Teaching Style</label>
+                    <select id="teachingStyle">
+                        <option value="lecture">Lecture-based</option>
+                        <option value="case">Case-based</option>
+                        <option value="discussion">Discussion-oriented</option>
+                        <option value="project">Project-based</option>
+                        <option value="flipped">Flipped Classroom</option>
+                        <option value="hands-on">Hands-on/Lab</option>
+                        <option value="seminar">Seminar/Workshop</option>
+                        <option value="hybrid">Hybrid/Blended</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="weeksDuration">Duration in Weeks</label>
+                    <input type="number" id="weeksDuration" placeholder="Approximate number of weeks">
+                </div>
+                
+                <div class="form-group">
+                    <label for="referenceContent">Reference Content (Optional)</label>
+                    <textarea id="referenceContent" placeholder="Paste any additional reference materials, book chapters, or course examples here."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="apiKey">Gemini API Key</label>
+                    <div class="api-key-container">
+                        <input type="password" id="apiKey" placeholder="Enter your Gemini API Key">
+                        <button id="toggleApiKey" class="toggle-visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <small>Your API key is stored locally and never sent to any server except Google's API.</small>
+                </div>
+                
+                <button id="generateBtn" class="primary-btn">Generate Syllabus</button>
+            </div>
+            
+            <div class="output-container" id="outputContainer">
+                <div class="output-header">
+                    <h2>Generated Syllabus</h2>
+                    <button id="copyBtn" class="secondary-btn" disabled>
+                        <i class="fas fa-copy"></i> Copy to Clipboard
+                    </button>
+                </div>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Generating your syllabus...</p>
+                </div>
+                
+                <div id="output" class="output"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>SyllabAI &copy; 2025 | <a href="#" id="aboutLink">About</a></p>
+        </footer>
+    </div>
+    
+    <div id="copyModal" class="modal">
+        <div class="modal-content">
+            <h3>Syllabus Copied!</h3>
+            <p>Paste this directly to Microsoft Word for a fully formatted document, ready to edit!</p>
+            <button id="closeModal" class="primary-btn">Got it!</button>
+        </div>
+    </div>
+    
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <h3>About SyllabAI</h3>
+            <p>SyllabAI is a lightweight tool that helps educators create course syllabi quickly using AI.</p>
+            <p>This application runs entirely in your browser - no data is stored on any server.</p>
+            <p>To use SyllabAI, you'll need a <a href="https://ai.google.dev/" target="_blank">Gemini API key</a>.</p>
+            <button id="closeAboutModal" class="primary-btn">Close</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
